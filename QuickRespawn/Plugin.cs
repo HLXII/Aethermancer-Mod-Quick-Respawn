@@ -10,8 +10,6 @@ public class Plugin : BaseUnityPlugin
 {
     private void Awake()
     {
-        Logger.LogInfo($"Quick Respawn: Plugin loaded");
-
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         var harmony = new Harmony("org.hlxii.plugin.quickrespawn");
@@ -21,12 +19,12 @@ public class Plugin : BaseUnityPlugin
     {
         if (scene.name == "PilgrimsRestScene")
         {
-            Logger.LogInfo($"Quick Respawn: Loaded Pilgrims Rest scene");
+            Logger.LogInfo($"Loaded Pilgrims Rest scene");
 
             var player = GameObject.Find("Player");
             if (player != null)
             {
-                Logger.LogInfo($"Quick Respawn: Player found, moving position");
+                Logger.LogInfo($"Player found, moving position");
                 player.transform.position = new Vector3(-230, 740, 96);
             }
             else
